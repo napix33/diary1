@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет ученика</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container student-container">
+        <header class="header student-header">
+            <div class="header-info">
+                <h1><i class="fas fa-graduation-cap"></i> Личный кабинет ученика</h1>
+                <div class="student-info">
+                    <p id="studentName">Иван Иванов</p>
+                    <p id="studentClass">Класс: 8А</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="logoutBtn" class="btn btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </button>
+            </div>
+        </header>
+        
+        <div class="student-content">
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="schedule"><i class="fas fa-calendar-alt"></i> Расписание</a></li>
+                        <li><a href="#" class="nav-link" data-section="grades"><i class="fas fa-star"></i> Мои оценки</a></li>
+                        <li><a href="#" class="nav-link" data-section="homework"><i class="fas fa-tasks"></i> Домашние задания</a></li>
+                        <li><a href="#" class="nav-link" data-section="statistics"><i class="fas fa-chart-line"></i> Статистика</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="student-sidebar-info">
+                    <h3>Ближайшие события</h3>
+                    <div class="upcoming-events" id="upcomingEvents">
+                        <!-- Ближайшие события будут загружены здесь -->
+                    </div>
+                </div>
+            </aside>
+            
+            <main class="main-content">
+                <!-- Секция расписания -->
+                <section id="schedule-section" class="content-section active">
+                    <div class="section-header">
+                        <h2><i class="fas fa-calendar-alt"></i> Мое расписание</h2>
+                        <div class="date-selector">
+                            <button id="prevDayBtn" class="btn btn-secondary"><i class="fas fa-chevron-left"></i></button>
+                            <h3 id="currentDay">Понедельник, 10 октября</h3>
+                            <button id="nextDayBtn" class="btn btn-secondary"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="day-schedule" id="daySchedule">
+                            <!-- Расписание на день будет загружено здесь -->
+                        </div>
+                        
+                        <div class="week-schedule">
+                            <h3>Расписание на неделю</h3>
+                            <table class="schedule-table compact">
+                                <thead>
+                                    <tr>
+                                        <th>День</th>
+                                        <th>Предметы</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="weekScheduleBody">
+                                    <!-- Расписание на неделю будет загружено здесь -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Секция оценок -->
+                <section id="grades-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-star"></i> Мои оценки</h2>
+                        <div class="filters">
+                            <div class="filter-group">
+                                <label for="gradeSubjectFilter">Предмет:</label>
+                                <select id="gradeSubjectFilter">
+                                    <option value="all">Все предметы</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="gradePeriodFilter">Период:</label>
+                                <select id="gradePeriodFilter">
+                                    <option value="all">Все время</option>
+                                    <option value="month">Текущий месяц</option>
+                                    <option value="week">Текущая неделя</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="grades-summary">
+                            <div class="summary-card">
+                                <h3>Средний балл</h3>
+                                <p class="summary-value" id="averageGrade">4.5</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Всего оценок</h3>
+                                <p class="summary-value" id="totalGrades">24</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Лучший предмет</h3>
+                                <p class="summary-value" id="bestSubject">Математика</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Последняя оценка</h3>
+                                <p class="summary-value" id="lastGrade">5</p>
+                            </div>
+                        </div>
+                        
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Предмет</th>
+                                        <th>Оценка</th>
+                                        <th>Комментарий учителя</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gradesTableBody">
+                                    <!-- Оценки будут загружены здесь -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Секция домашних заданий -->
+                <section id="homework-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-tasks"></i> Домашние задания</h2>
+                        <div class="filters">
+                            <div class="filter-group">
+                                <label for="hwSubjectFilter">Предмет:</label>
+                                <select id="hwSubjectFilter">
+                                    <option value="all">Все предметы</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="hwStatusFilter">Статус:</label>
+                                <select id="hwStatusFilter">
+                                    <option value="all">Все</option>
+                                    <option value="active">Активные</option>
+                                    <option value="completed">Выполненные</option>
+                                    <option value="overdue">Просроченные</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="homework-grid" id="homeworkGrid">
+                            <!-- Домашние задания будут загружены здесь -->
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Секция статистики -->
+                <section id="statistics-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-line"></i> Моя статистика</h2>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="stats-container">
+                            <div class="stats-chart">
+                                <h3>Успеваемость по предметам</h3>
+                                <div class="chart-container">
+                                    <canvas id="gradesChart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div class="stats-details">
+                                <h3>Детализация оценок</h3>
+                                <div class="subject-details" id="subjectDetails">
+                                    <!-- Детализация по предметам будет загружена здесь -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="student.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

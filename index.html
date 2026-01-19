@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школьный дневник</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-book"></i> Электронный школьный дневник</h1>
+            <p>Удобная система для учителей и учащихся</p>
+        </header>
+        
+        <main class="main-content">
+            <div class="role-selection">
+                <div class="role-card teacher-role">
+                    <div class="role-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h2>Учитель</h2>
+                    <p>Добавляйте учеников, предметы, оценки и домашние задания</p>
+                    <div class="role-actions">
+                        <a href="login.html?role=teacher" class="btn btn-primary">Войти</a>
+                        <a href="register.html?role=teacher" class="btn btn-secondary">Зарегистрироваться</a>
+                    </div>
+                </div>
+                
+                <div class="role-card student-role">
+                    <div class="role-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2>Ученик</h2>
+                    <p>Просматривайте расписание, оценки и домашние задания</p>
+                    <div class="role-actions">
+                        <a href="login.html?role=student" class="btn btn-primary">Войти</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <h2>Возможности системы</h2>
+                <div class="feature-list">
+                    <div class="feature">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>Управление учениками</h3>
+                        <p>Учителя могут добавлять учеников с индивидуальными логинами и паролями</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Расписание</h3>
+                        <p>Создание и просмотр школьного расписания по предметам</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-star"></i>
+                        <h3>Оценки</h3>
+                        <p>Выставление оценок с возможностью добавления комментариев</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Домашние задания</h3>
+                        <p>Назначение и отслеживание домашних заданий со сроками сдачи</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>Школьный дневник &copy; 2023. Все права защищены.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
